@@ -25,6 +25,12 @@ const saveData = (nama, mobile, email) => {
     }
   }
 
+  // validasi nama, jika nama yang diinputkan sudah ada maka akan tampil pesan kesalahan
+  const kontak = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
+  if (kontak.some((contact) => contact.nama === nama)) {
+    console.log("The name is already exist. Please input a different name!");
+    return false;
+  }
   // validasi phone number
   if (mobile) {
     if (!validator.isMobilePhone(mobile, "id-ID")) {

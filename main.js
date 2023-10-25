@@ -26,4 +26,5 @@ yargs.command({
     app.saveData(argv.nama, argv.mobile, argv.email);
   },
 });
+
 yargs.parse();
